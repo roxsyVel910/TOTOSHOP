@@ -5,9 +5,9 @@ function CardProduct({producto}) {
   return (
     <>
             
-                <div className='card-product'>
+                <div className='card-product '>
                   <h3 onClick={() => navigate(`/product/${producto.id}`)}>{producto.title}</h3>
-                    <img src={producto.images[0]} alt=""  className='imagen-producto'/>
+                    <img src={producto.images[0]} alt="detalle"  className='imagen-producto'/>
                     <p>{producto.description}</p>
                     <strong>${producto.price}</strong>
                 </div>   
