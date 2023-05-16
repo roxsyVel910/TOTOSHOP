@@ -1,9 +1,11 @@
 
 import { useEffect, useState } from "react";
 import { getProducts } from "../Context/ApiFetch.js";
-
+import { Header } from "../../componentes/header.jsx";
 import CardProduct from "../Product/index.jsx";
 import './index.css'
+
+
 
 function Home() {
   const [products, setProducts] = useState(null);
@@ -36,8 +38,7 @@ function Home() {
 
   return (
     <>
-  
-
+    <Header></Header>
       <main>
     
         <div>
