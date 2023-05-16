@@ -1,24 +1,39 @@
+import { uniqueProduct } from "../Context/ApiFetch";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import './index.css'
 
-const ProductDetail = () => {
+function ProductDetail() {
+  const [productito, setProductito] = useState(null);
+  const params = useParams();
+  useEffect(() => {
+    uniqueProduct(params.id, setProductito);
+  }, []);
 
-    return (
-        <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-         
-            <img src="ruta/a/imagen-del-producto.jpg" class="img-fluid" alt="Producto"></img>
+  return (
+    <>
+      <section>
+        {productito != null ? (
+          <div className="productito">
+            <img className="imagen-principal" src={productito.images[0]} />
+            <strong>{productito.title}</strong>
+            <strong>${productito.price}</strong>
+            <p>{productito.description}</p>
+
+            {productito.images.length >= 4 ? (
+              <div className="imagenes-adicionales">
+                <img src={productito.images[1]} alt={productito.title} className="imagen-adicional"/>
+                <img src={productito.images[2]} alt={productito.title} className="imagen-adicional"/>
+                <img src={productito.images[3]} alt={productito.title} className="imagen-adicional"/>
+              </div>
+            ) : null}
           </div>
-          <div class="col-md-6">
-           
-            <h2>Nombre del producto</h2>
-            <p>Descripción del producto.</p>
-            <h3>Precio: </h3>
-            <button class="btn btn-primary">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-      
-
-    );
+        ) : (
+          "Loading"
+        )}
+      </section>
+    </>
+  );
 }
-export default ProductDetail
+
+export default ProductDetail;

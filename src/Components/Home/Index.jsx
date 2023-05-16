@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from "react";
-import { getProducts } from "../Context/ApiFetch.js";
+import { getProducts } from "../Context/ApiFetch.jsx";
 import { Header } from "../../componentes/header.jsx";
 import CardProduct from "../Product/index.jsx";
+
 import './index.css'
 
 
