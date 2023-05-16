@@ -5,7 +5,7 @@
 }
 
 .productos {
-    background-color: rgb(17, 53, 53);
+    background-color: rgb(219, 237, 237);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
